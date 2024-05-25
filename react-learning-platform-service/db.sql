@@ -66,6 +66,7 @@ INSERT INTO user_courses (userId, courseId, userProgress) VALUES
 (3, 5, 40),
 (3, 6, 30);
 
+-- Insert dummy data into course_likes table
 INSERT INTO course_likes (userId, courseId)
 VALUES 
   (1, 1),
