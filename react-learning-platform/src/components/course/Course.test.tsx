@@ -30,8 +30,7 @@ describe("Course Component", () => {
   it("renders the author name", () => {
     const { getByText } = render(
       <MemoryRouter>
-        {" "}
-        <Course {...props} />{" "}
+        <Course {...props} />
       </MemoryRouter>
     );
     expect(getByText(/by John Doe/i)).toBeInTheDocument();
@@ -40,8 +39,7 @@ describe("Course Component", () => {
   it("renders the avatar image", () => {
     const { getByAltText } = render(
       <MemoryRouter>
-        {" "}
-        <Course {...props} />{" "}
+        <Course {...props} />
       </MemoryRouter>
     );
     const avatar = getByAltText("Test Course");
@@ -51,8 +49,7 @@ describe("Course Component", () => {
   it("renders the course image", () => {
     const { getByTitle } = render(
       <MemoryRouter>
-        {" "}
-        <Course {...props} />{" "}
+        <Course {...props} />
       </MemoryRouter>
     );
     const image = getByTitle("Test Course");
@@ -62,8 +59,7 @@ describe("Course Component", () => {
   it("renders the number of lessons", () => {
     const { getByText } = render(
       <MemoryRouter>
-        {" "}
-        <Course {...props} />{" "}
+        <Course {...props} />
       </MemoryRouter>
     );
     expect(getByText("10 lessons")).toBeInTheDocument();
@@ -72,8 +68,7 @@ describe("Course Component", () => {
   it("renders the duration", () => {
     const { getByText } = render(
       <MemoryRouter>
-        {" "}
-        <Course {...props} />{" "}
+        <Course {...props} />
       </MemoryRouter>
     );
     expect(getByText("2h 30m")).toBeInTheDocument();
@@ -82,8 +77,7 @@ describe("Course Component", () => {
   it("renders the number of likes", () => {
     const { getByText } = render(
       <MemoryRouter>
-        {" "}
-        <Course {...props} />{" "}
+        <Course {...props} />
       </MemoryRouter>
     );
     expect(getByText("123")).toBeInTheDocument();
@@ -92,8 +86,7 @@ describe("Course Component", () => {
   it("renders the AccessTimeIcon", () => {
     const { container } = render(
       <MemoryRouter>
-        {" "}
-        <Course {...props} />{" "}
+        <Course {...props} />
       </MemoryRouter>
     );
     expect(
@@ -104,8 +97,7 @@ describe("Course Component", () => {
   it("renders the ThumbUpIcon", () => {
     const { container } = render(
       <MemoryRouter>
-        {" "}
-        <Course {...props} />{" "}
+        <Course {...props} />
       </MemoryRouter>
     );
     expect(
