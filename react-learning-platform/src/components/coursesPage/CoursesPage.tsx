@@ -31,25 +31,27 @@ const CoursesPage: React.FC<{ userId: number }> = ({ userId }) => {
   }
 
   return (
-    <Container maxWidth="lg">
-      <Box id="inprogress">
-        <Typography variant="h4" component="div" sx={{ mb: 1 }}>
-          Continue learning
-        </Typography>
-        <CoursesList
-          courses={courses.filter(
-            (c) => c.userProgress > 0 && c.userProgress < 100
-          )}
-        />
-      </Box>
+    status === ResponseStatus.Succeeded && (
+      <Container maxWidth="lg">
+        <Box id="inprogress">
+          <Typography variant="h4" component="div" sx={{ mb: 1 }}>
+            Continue learning
+          </Typography>
+          <CoursesList
+            courses={courses.filter(
+              (c) => c.userProgress > 0 && c.userProgress < 100
+            )}
+          />
+        </Box>
 
-      <Box id="recommended" sx={{ mt: 2 }}>
-        <Typography variant="h4" component="div" sx={{ mb: 1 }}>
-          You might also like
-        </Typography>
-        <CoursesList courses={courses.filter((c) => c.userProgress == 0)} />
-      </Box>
-    </Container>
+        <Box id="recommended" sx={{ mt: 2 }}>
+          <Typography variant="h4" component="div" sx={{ mb: 1 }}>
+            You might also like
+          </Typography>
+          <CoursesList courses={courses.filter((c) => c.userProgress == 0)} />
+        </Box>
+      </Container>
+    )
   );
 };
 export default CoursesPage;

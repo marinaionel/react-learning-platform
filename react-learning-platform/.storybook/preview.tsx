@@ -1,6 +1,7 @@
+import React from "react";
 import type { Preview } from "@storybook/react";
-
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { MemoryRouter } from "react-router";
+import { createGlobalStyle } from "styled-components";
 import { withThemeFromJSXProvider } from "@storybook/addon-themes";
 
 const GlobalStyles = createGlobalStyle`
@@ -23,6 +24,11 @@ const preview: Preview = {
     withThemeFromJSXProvider({
       GlobalStyles,
     }),
+    (Story) => (
+      <MemoryRouter initialEntries={["/"]}>
+        <Story />
+      </MemoryRouter>
+    ),
   ],
 };
 

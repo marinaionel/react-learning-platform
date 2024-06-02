@@ -6,7 +6,8 @@
   "scripts": {
     "build": "npx tsc",
     "start": "npx ts-node index.ts",
-    "dev": "nodemon index.ts"
+    "dev": "nodemon index.ts",
+    "health": "npx ts-node health-check.ts"
   },
   "author": "",
   "license": "ISC",

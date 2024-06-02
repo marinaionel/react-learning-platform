@@ -1,0 +1,67 @@
+services:
+  frontend:
+    restart: always
+    container_name: frontend
+    networks:
+      - public
+    build:
+      context: ./react-learning-platform
+      args:
+        - NODE_ENV=development
+    env_file:
+      - ./react-learning-platform/.env
+    depends_on:
+      - backend
+    ports:
+      - 3000:3000
+    expose:
+      - 3000
+    environment:
+      - PORT=3000
+      - NODE_ENV=development
+    volumes:
+      - ./frontend/src:/code/src
+
+  backend:
+    restart: always
+    container_name: backend
+    networks:
+      - private
+      - public
+    hostname: backend
+    env_file:
+      - ./react-learning-platform-service/.env
+    build:
+      context: ./react-learning-platform-service
+      args:
+        - NODE_ENV=development
+    depends_on:
+      - postgres
+    ports:
+      - 3001:3001
+    expose:
+      - 3001
+    environment:
+      - PORT=3001
+      - NODE_ENV=development
+    volumes:
+      - ./backend/src:/code/src
+
+  postgres:
+    networks:
+      - private
+    env_file:
+      - .env.postgres
+    container_name: postgres
+    image: postgres:latest
+    restart: always
+    volumes:
+      - ~/apps/postgres:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+
+networks:
+  public:
+  private:

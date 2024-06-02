@@ -12,7 +12,7 @@ import axios from "axios";
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 
-axios.defaults.baseURL = 'http://localhost:3001/'
+axios.defaults.baseURL = process.env.REACT_APP_BACKEND_URL
 
 const theme = createTheme({
   palette: {
